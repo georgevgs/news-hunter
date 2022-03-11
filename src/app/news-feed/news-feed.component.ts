@@ -8,7 +8,9 @@ import { NewsService } from '../services/news.service';
   providers:[NewsService]
 })
 export class NewsFeedComponent implements OnInit {
-  news: any; 
+  news: any;
+  accordionIndex = 0;
+  accordionIndexArray: any = [];
 
   constructor(private newsService: NewsService) {}
 
@@ -21,6 +23,13 @@ export class NewsFeedComponent implements OnInit {
       (result: any) => {
         this.news = result.articles;
         console.table(this.news);
+
+        this.news.forEach(() => {
+          this.accordionIndex = this.accordionIndex + 1;
+          this.accordionIndexArray.push(this.accordionIndex);
+        });
+
+        console.log(this.accordionIndexArray);
       },
       (err: string) => {
         console.log('ERROR=' + err);

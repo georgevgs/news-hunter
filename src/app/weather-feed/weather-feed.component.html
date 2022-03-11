@@ -1,0 +1,12 @@
+<div *ngIf="this.weather">
+    <h2>Current weather forecast for {{ this.weatherLocationName }}:</h2>
+    <h5>Temperature: {{ this.weather.temperature }} but feels more like {{ this.weather.temperatureApparent }} </h5>
+    <h5>Humidity: {{this.weather.humidity }}%</h5>
+    <!-- <h5>{{this.weather.weatherCodeDay }}</h5> -->
+    <h5>Wind: {{ this.weather.windSpeed }} m/s going {{ this.weather.windDirection }} from north</h5>
+    <!-- <h5>Sun sets at: {{ this.weather.sunsetTime }} </h5> -->
+</div>
+
+<div *ngIf="!this.weather">
+    <h2>Oops no weather data for you :/</h2>
+</div>
